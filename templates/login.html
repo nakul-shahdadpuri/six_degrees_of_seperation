@@ -1,0 +1,68 @@
+<html>
+        <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <style>
+                body {margin:0;}
+                .navbar {
+                  overflow: hidden;
+                  background-color: rgb(5, 5, 5);
+                  position: fixed;
+                  top: 0;
+                  width: 100%;
+                }
+                
+                .navbar a {
+                  float: left;
+                  display: block;
+                  color: #f2f2f2;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  font-size: 17px;
+                }
+                
+                .navbar a:hover {
+                  background: #ddd;
+                  color: black;
+                }
+                
+                .main {
+                  background-image: url("https://goo.gl/3ooJyq"); 
+                  background-repeat: no-repeat;
+                  background-size: 300px 300px;
+                  background-position: 1000px 100px; 
+                  padding: 16px;
+                  margin-top: 30px;
+                  height: 1500px; /* Used in this example to enable scrolling */
+                }
+                </style>
+                </head>
+    <body>
+            <div class="navbar">
+                    <a href = "/"><b>Login</b> </a>
+                    </div>
+        <form method="POST" action="">
+                {% csrf_token %}
+                <div class = "main">
+            <p>
+              <br><br><br>
+            <label><b>Username</b>     
+            <input type="text" name="name" required>
+            </label> 
+            </p>
+            <br>
+            <p>
+            <label><b>Password</b> 
+            <input type="password" name = "password">
+            </label><br><font color = "red">
+            {% for message in messages%}
+            {{message}}
+            {% endfor %}
+            </font>
+            </p>
+            <p>
+              <br><button> Log In </button></p>
+            </form>
+        </div>
+    </body>
+</html>

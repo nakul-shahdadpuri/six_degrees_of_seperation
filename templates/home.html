@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {margin:0;}
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(5, 5, 5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.main {
+  background-image: url("https://goo.gl/3ooJyq"); 
+                  background-repeat: no-repeat;
+                  background-size: 300px 300px;
+                  background-position: 1000px 100px; 
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; /* Used in this example to enable scrolling */
+}
+</style>
+</head>
+<body>
+        {% csrf_token %}
+{% if user.is_authenticated %}
+<div class="navbar">
+        <a href = "/">Hello, {{user.username}}</a>
+          <a href="login/logout/">Logout</a>
+          <a href="text/">Text</a>
+        </div>
+{% else %}
+<div class="navbar">
+<a href="signup/">Sign Up</h4></a>
+  <a href="login/">Login</a>
+</div>
+{% endif %}
+
+<div class="main">
+
+  <br>
+  <br>
+  <h1>6 Steps or Less...</h1>
+<br>
+<br>
+ <b>"Six degrees of separation is the idea that all people are six, or fewer, social connections away from each other."<br>
+ </b><i>-Frigyes Karinthy</i><br>
+ <br>
+ <br>
+ <b>"Let's prove it."</b>
+ <br>
+  <i>- Nakul Shahdadpuri</i>
+  <br>
+  <br>
+  <br>
+  <b>"0h rEaLly"<br></b>
+ <i> - Random Spastic Guy</i><br><br><br>
+ {% if user.is_authenticated %}
+ <b> "Let's Go"</b><br>
+ <i> -{{user.username}}</i>
+  {% endif %}
+</div>
+</body>
+</html>
